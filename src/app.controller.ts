@@ -5,6 +5,9 @@ import { CreateNotificationBody } from './create.notification.body';
 
 @Controller('notifications')
 export class AppController {
+  getHello(): any {
+    throw new Error('Method not implemented.');
+  }
   constructor(private readonly prisma: PrismaService) {}
 
   @Get()
@@ -14,11 +17,11 @@ export class AppController {
 
   @Post()
   async create(@Body() body: CreateNotificationBody){
-    const {recipientId, category, content } = body
+    const {recipientId, content, category} = body
 
   await this.prisma.notification.create({
     data: {
-    // id: randomUUID,
+    // id: randomUUID(),
     content: 'Voce recebeu uma nova notificacao',
     category: 'social',
     recipientId: randomUUID(),
@@ -26,3 +29,4 @@ export class AppController {
   });
   }
 }
+ 9

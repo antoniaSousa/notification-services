@@ -8,6 +8,7 @@ import { CreateNotificationBody } from './create.notification.body';
   imports: [HttpModule],
   controllers: [AppController],
   providers: [PrismaService, CreateNotificationBody],
+  
 
 })
 export class AppModule {}
